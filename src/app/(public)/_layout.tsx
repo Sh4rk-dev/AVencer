@@ -5,10 +5,12 @@ export default function PublicRootLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
+        animation: "slide_from_bottom",
         contentStyle: { backgroundColor: "#1E1E1E" },
       }}
     >
       <Stack.Screen name="index" />
+      <Stack.Screen name="sign-in" />
     </Stack>
   );
 }

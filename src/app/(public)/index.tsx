@@ -3,6 +3,7 @@ import { InitialSlideTwo } from "@/assets/initial-slide-02";
 import { InitialSlideThree } from "@/assets/initial-slide-03";
 import { Text } from "@/components/text";
 import clsx from "clsx";
+import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { SafeAreaView, TouchableOpacity, View } from "react-native";
 import PagerView from "react-native-pager-view";
@@ -35,6 +36,13 @@ export default function Initial() {
     },
   ];
 
+  function onSlideChange() {
+    pagerRef.current?.setPage(currentStage);
+    if (currentStage === Stage.THREE) {
+      router.push("/sign-in");
+    }
+  }
+
   return (
     <SafeAreaView className="flex-1 items-center justify-between pb-20 pt-56 px-11">
       <PagerView
@@ -58,8 +66,9 @@ export default function Initial() {
       </PagerView>
 
       <View className="flex-row gap-2">
-        {slideItens.map((_, index) => (
+        {slideItens.map((item, index) => (
           <View
+            key={item.id}
             className={clsx(
               "size-2 rounded-full",
               currentStage === index + 1 ? "bg-primary" : "bg-secondary"
@@ -69,7 +78,7 @@ export default function Initial() {
       </View>
 
       <TouchableOpacity
-        onPress={() => pagerRef.current?.setPage(currentStage)}
+        onPress={onSlideChange}
         className="bg-primary w-full items-center justify-center rounded-md h-12 max-h-12"
       >
         <Text className="text-white font-bold">Avançar</Text>

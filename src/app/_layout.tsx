@@ -1,6 +1,7 @@
 import "../styles/global.css";
 import {
   useFonts,
+  Jost_300Light,
   Jost_400Regular,
   Jost_500Medium,
   Jost_600SemiBold,
@@ -16,6 +17,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
+    Jost_300Light,
     Jost_400Regular,
     Jost_500Medium,
     Jost_600SemiBold,
