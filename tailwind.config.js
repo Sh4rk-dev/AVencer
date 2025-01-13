@@ -1,3 +1,6 @@
+import { colors } from "./src/styles/colors";
+import { fontFamily } from "./src/styles/font-family";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
@@ -5,18 +8,8 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
-      fontFamily: {
-        light: ["Jost_300Light"],
-        normal: ["Jost_400Regular"],
-        medium: ["Jost_500Medium"],
-        semiBold: ["Jost_600SemiBold"],
-        bold: ["Jost_700Bold"],
-      },
-      colors: {
-        background: "#1E1E1E",
-        primary: "#FC5404",
-        secondary: "#3A3A3A",
-      },
+      fontFamily,
+      colors,
     },
   },
   plugins: [],

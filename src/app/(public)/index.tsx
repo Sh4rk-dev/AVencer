@@ -38,8 +38,9 @@ export default function Initial() {
 
   function onSlideChange() {
     pagerRef.current?.setPage(currentStage);
+
     if (currentStage === Stage.THREE) {
-      router.push("/sign-in");
+      router.navigate("/sign-in");
     }
   }
 

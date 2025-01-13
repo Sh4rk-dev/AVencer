@@ -7,15 +7,25 @@ import {
 } from "react-native";
 import { LogIn } from "lucide-react-native";
 import { Text } from "@/components/text";
+import { router } from "expo-router";
+import { colors } from "@/styles/colors";
 
 export default function SignIn() {
+  function handleSignUp() {
+    router.navigate("/sign-up");
+  }
+
+  function handleRecoverPassword() {
+    router.navigate("/recover-password");
+  }
+
   return (
     <View className="flex-1 w-full items-center justify-center px-7">
       <Image className="mb-24" source={require("@/assets/logo.png")} />
 
       <View className="gap-2 w-full">
         <View className="flex-row items-center justify-center gap-2">
-          <LogIn size={26} color={"#FC5404"} />
+          <LogIn size={26} color={colors.primary} />
           <Text className="text-2xl ">Faça seu login</Text>
         </View>
 
@@ -49,7 +59,8 @@ export default function SignIn() {
 
         <View className="flex-row justify-between">
           <Text>Lembre-me</Text>
-          <Pressable>
+
+          <Pressable onPress={handleRecoverPassword}>
             <Text className="text-primary">Esqueci minha senha</Text>
           </Pressable>
         </View>
@@ -59,7 +70,7 @@ export default function SignIn() {
         </TouchableOpacity>
 
         <View>
-          <Pressable>
+          <Pressable onPress={handleSignUp}>
             <Text className="text-center text-primary mt-3">
               Não tem uma conta? Registra-se
             </Text>

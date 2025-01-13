@@ -12,6 +12,7 @@ import { Slot, SplashScreen } from "expo-router";
 import { useEffect } from "react";
 import { ActivityIndicator } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -42,7 +43,7 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <Slot />
 
       <StatusBar
@@ -51,6 +52,6 @@ export default function RootLayout() {
         style="light"
         animated
       />
-    </>
+    </GestureHandlerRootView>
   );
 }
