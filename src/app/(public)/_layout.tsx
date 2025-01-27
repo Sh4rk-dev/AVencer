@@ -1,6 +1,12 @@
-import { Stack } from "expo-router";
+import { Redirect, Stack } from "expo-router";
 
 export default function PublicRootLayout() {
+  const isAuthenticated = true;
+
+  if (isAuthenticated) {
+    return <Redirect href={"/(private)/(tabs)"} />;
+  }
+
   return (
     <Stack
       screenOptions={{

@@ -1,5 +1,6 @@
-import { Text } from "@/components/text";
 import { Pressable, TextInput, View } from "react-native";
+
+import { Text } from "@/components/text";
 
 export function ConfirmationCode() {
   return (

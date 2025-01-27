@@ -1,7 +1,10 @@
-import { RecoverPasswordStage } from "@/app/(public)/recover-password";
-import { Text } from "@/components/text";
 import { router } from "expo-router";
-import { Pressable, TextInput, TouchableOpacity, View } from "react-native";
+
+import { Pressable, TextInput, View } from "react-native";
+
+import { Text } from "@/components/text";
+import { Button } from "@/components/button";
+import { RecoverPasswordStage } from "@/screens/public/recover-password/recover-password.types";
 
 interface ConfirmationCodeProps {
   setStage: React.Dispatch<React.SetStateAction<RecoverPasswordStage>>;
@@ -77,19 +80,13 @@ export function ConfirmationCode({ setStage }: ConfirmationCodeProps) {
       </View>
 
       <View className="w-full justify-center items-center mb-16 gap-3">
-        <TouchableOpacity
-          onPress={handleCreateNewPassword}
-          className="w-full bg-primary p-4 rounded-md items-center"
-        >
-          <Text className="font-bold">ENVIAR</Text>
-        </TouchableOpacity>
+        <Button className="mt-5" onPress={handleCreateNewPassword}>
+          <Button.Text>ENVIAR</Button.Text>
+        </Button>
 
-        <TouchableOpacity
-          onPress={goBack}
-          className="w-full border border-primary p-4 rounded-md items-center"
-        >
-          <Text className="font-bold">VOLTAR</Text>
-        </TouchableOpacity>
+        <Button variant="secondary" onPress={goBack}>
+          <Button.Text>VOLTAR</Button.Text>
+        </Button>
       </View>
     </View>
   );
