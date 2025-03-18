@@ -28,7 +28,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="adding"
+        name="newTransaction"
         options={{
           title: "Adicionar",
           tabBarIcon: ({ color }) => <CirclePlus size={26} color={color} />,

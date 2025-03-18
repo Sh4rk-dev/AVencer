@@ -1,25 +1,25 @@
 import { TextInput, View } from "react-native";
 
+import { colors } from "@/styles/colors";
+
 import { Text } from "./text";
 import { LucideIcon } from "lucide-react-native";
 
-import { colors } from "@/styles/colors";
-
 interface InputProps extends React.ComponentProps<typeof TextInput> {
-  label: string;
+  label?: string;
   rightIcon?: LucideIcon;
   leftIcon?: LucideIcon;
 }
 
 export function Input({
-  rightIcon: RightIcon,
   label,
   leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   ...rest
 }: InputProps) {
   return (
-    <View className="w-full items-start relative  gap-4">
-      <Text className="">{label}</Text>
+    <View className="flex-1 items-start relative  gap-4">
+      {label && <Text>{label}</Text>}
 
       <View className="flex-row items-center h-12 px-2 justify-between border border-primary rounded-md">
         <View className="flex-1 flex-row items-center gap-1">

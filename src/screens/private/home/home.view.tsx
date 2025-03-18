@@ -1,5 +1,5 @@
-import { ScrollView } from "react-native-gesture-handler";
 import { FlatList, TouchableOpacity, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 import {
   Bell,
@@ -12,24 +12,24 @@ import {
   Newspaper,
 } from "lucide-react-native";
 
-import { Text } from "@/components/text";
 import { CardGrid } from "@/components/cardGrid";
-import { CardHistoryItem } from "@/components/cardHistoryItem";
+import { Text } from "@/components/text";
 
-import { colors } from "@/styles/colors";
 import { cardHistoryItemMocked } from "@/mocked/historyMocked";
+import { colors } from "@/styles/colors";
 
 import { useHomeModel } from "@/screens/private/home/home.model";
+import { CardHistoryItem } from "@/components/cardHistoryItem";
 
 type HomeViewProps = ReturnType<typeof useHomeModel>;
 
-export default function HomeView({ Log }: HomeViewProps) {
+export default function HomeView({ HandleNotification }: HomeViewProps) {
   return (
     <ScrollView>
       <View className="flex-1 w-full px-8">
         <View className="flex-row items-center justify-between mt-16">
           <Text className="text-2xl font-bold">Olá, Renan Rapace</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={HandleNotification}>
             <Bell size={24} color={"#FC5404"} />
           </TouchableOpacity>
         </View>
@@ -87,7 +87,9 @@ export default function HomeView({ Log }: HomeViewProps) {
             data={cardHistoryItemMocked.slice(0, 4)}
             className="flex-1 w-full mt-5"
             contentContainerClassName="gap-3 pb-20"
-            renderItem={({ item }) => <CardHistoryItem history={item} />}
+            renderItem={({ item }) => (
+              <CardHistoryItem history={item} disabled />
+            )}
             keyExtractor={(item) => item.id}
           />
         </View>

@@ -1,10 +1,7 @@
-import { Text } from "@/components/text";
-import { View } from "lucide-react-native";
+import { useHistoryModel } from "@/screens/private/history/history.model";
+import { HistoryView } from "@/screens/private/history/history.view";
 
 export default function History() {
-  return (
-    <View>
-      <Text>History</Text>
-    </View>
-  );
+  const method = useHistoryModel();
+  return <HistoryView {...method} />;
 }

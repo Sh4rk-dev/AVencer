@@ -1,7 +1,9 @@
+import { router } from "expo-router";
+
 export function useHomeModel() {
-  function Log() {
-    console.log("HomeModel");
+  function HandleNotification() {
+    router.navigate("/(private)/(stack)/notifications/notification");
   }
 
-  return { Log };
+  return { HandleNotification };
 }

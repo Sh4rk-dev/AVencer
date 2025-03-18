@@ -1,10 +1,10 @@
 import { Text } from "@/components/text";
+import { useCollectionModel } from "@/screens/private/collection/collection.model";
+import { CollectionView } from "@/screens/private/collection/collection.view";
 import { View } from "lucide-react-native";
 
 export default function Collections() {
-  return (
-    <View>
-      <Text>Collections</Text>
-    </View>
-  );
+  const method = useCollectionModel();
+
+  return <CollectionView {...method} />;
 }

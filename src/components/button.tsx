@@ -23,6 +23,7 @@ const button = tv({
       },
     },
     size: {
+      sm: { container: "flex-1" },
       base: { container: "max-h-12 h-12" },
     },
     disabled: {
@@ -46,10 +47,10 @@ type ContextProps = VariantProps<typeof button>;
 const ButtonContext = createContext<ContextProps>({} as ContextProps);
 
 const ButtonRoot = ({
-  children,
-  disabled,
   size,
   variant,
+  children,
+  disabled,
   className,
   ...rest
 }: ButtonRootProps) => {

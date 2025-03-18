@@ -1,9 +1,9 @@
 import { Text } from "@/components/text";
 import { colors } from "@/styles/colors";
-import { CircleMinusIcon, CirclePlus, Minus, Plus } from "lucide-react-native";
-import { View } from "react-native";
+import { CircleMinusIcon, CirclePlus, MoreVertical } from "lucide-react-native";
+import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 
-interface CardHistoryItemProps {
+interface CardHistoryItemProps extends TouchableOpacityProps {
   history: {
     id?: string;
     tag: string;
@@ -13,12 +13,26 @@ interface CardHistoryItemProps {
     description: string;
     transactionType: "Despesa" | "Receita" | string;
   };
+  details: boolean;
+  onPress?: () => void;
 }
 
-export function CardHistoryItem({ history }: CardHistoryItemProps) {
+export function CardHistoryItem({
+  history,
+  onPress,
+  details,
+  ...rest
+}: CardHistoryItemProps) {
   return (
-    <View className="flex-1 w-full p-4 bg-secondary rounded-md">
-      <Text className="font-light text-tertiary pb-1">{history.tag}</Text>
+    <View className="flex-1 w-full p-4 bg-secondary rounded-md border-l border-primary">
+      <View className="flex-1 justify-between flex-row items-center">
+        <Text className="font-light text-tertiary pb-1">{history.tag}</Text>
+        {details && (
+          <TouchableOpacity onPress={onPress} activeOpacity={0.6} {...rest}>
+            <MoreVertical size={20} color={"#FC5404"} />
+          </TouchableOpacity>
+        )}
+      </View>
 
       <View className="flex-row items-center gap-2 mb-3">
         <Text className="font-semiBold text-xl">{history.title} -</Text>
